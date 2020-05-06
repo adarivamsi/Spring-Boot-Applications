@@ -32,7 +32,7 @@ public class Bike {
     private String serialNumber;
     private BigDecimal purchasePrice;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm")
     private Timestamp purchaseDate;
     private boolean contact;
 
@@ -92,7 +92,8 @@ public class Bike {
         this.purchasePrice = purchasePrice;
     }
 
-    public Date getPurchaseDate() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", locale = "en_US")
+    public Timestamp getPurchaseDate() {
         return purchaseDate;
     }
 
